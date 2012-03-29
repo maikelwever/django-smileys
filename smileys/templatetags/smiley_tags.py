@@ -21,7 +21,7 @@ def replace_smileys(content, autoescape=None):
     content = esc(content)
     for smiley, name, image in RE_SMILEYS_LIST:
         if smiley.search(content):
-            smiley_html = '<img class="%s" src="%s" alt="%s" />' % (
+            smiley_html = '<img class="%s" src="%s" />' % (
                 SMILEYS_CLASS, os.path.join(SMILEYS_URL, image), name)
             content = smiley.sub(smiley_html, content)
     return mark_safe(content)
